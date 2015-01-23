@@ -1,0 +1,18 @@
+<Alloy>
+	<!-- Representa cada fila de la tabla -->
+	<TableViewRow class="contenedor-fila">
+		<View class="noticia">
+		
+			<!-- Imagen thumbnail -->	
+			<ImageView id="thumb">
+			</ImageView>
+			
+			<!-- Título y texto previo (excerpt)-->
+			<View class="info-noticia">
+				<Label id="titulo"></Label>
+				<Label id="previo"></Label>
+			</View>  
+		
+		</View>
+	</TableViewRow>
+</Alloy>

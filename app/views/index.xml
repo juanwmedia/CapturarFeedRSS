@@ -1,0 +1,8 @@
+<Alloy>
+	<Window class="contenedor">
+		<!-- Tabla que contendrá el listado de noticias-->
+		<TableView id="tablaNoticias">
+			
+		</TableView>
+	</Window>
+</Alloy>

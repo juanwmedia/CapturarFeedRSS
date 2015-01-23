@@ -1,0 +1,32 @@
+".contenedor-fila" : {
+  height: "100"
+}
+
+"#thumb" : {
+	left:"5",
+	top:"5",
+	width:"100",
+	height:"100"
+}
+
+".info-noticia" : {
+	layout: "vertical",
+	left: "110",
+	top: "5",
+	right: "5"	
+}
+
+"#titulo" : {
+	width: Titanium.UI.FILL,
+	font: {
+		fontSize: "16"
+	}
+}
+
+"#previo" : {
+	width: Titanium.UI.FILL,
+	color: "#999999",
+	font: {
+		fontSize: "12"
+	}
+}
