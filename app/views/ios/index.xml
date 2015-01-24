@@ -1,0 +1,8 @@
+<Alloy>
+	<NavigationWindow id="navigationWindow">
+		<Window class="contenedor" title="Lector RSS">
+			<!-- Tabla que contendrá el listado de noticias-->
+			<TableView id="tablaNoticias" onClick="abrirDetalle"></TableView>
+		</Window>
+	</NavigationWindow>
+</Alloy>
