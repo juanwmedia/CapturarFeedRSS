@@ -1,8 +1,8 @@
 <Alloy>
-	<Window class="contenedor">
-		<!-- Tabla que contendrá el listado de noticias-->
-		<TableView id="tablaNoticias">
-			
-		</TableView>
-	</Window>
+	<NavigationWindow id="navigationWindow" platform="ios">
+		<Window class="contenedor" title="Lector RSS">
+			<!-- Tabla que contendrá el listado de noticias-->
+			<TableView id="tablaNoticias" onClick="abrirDetalle"></TableView>
+		</Window>
+	</NavigationWindow>
 </Alloy>

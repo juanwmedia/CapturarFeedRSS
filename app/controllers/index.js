@@ -35,7 +35,8 @@ var onSucces = function(respuesta) {
 		payload = {
 			titulo: noticia.title,
 			previo: noticia.excerpt,
-			thumb: noticia.thumbnail
+			thumb: noticia.thumbnail,
+			direccion: noticia.permalink
 		};
 		
 		// Pora cada fila instanciamos el controlador de las filas
@@ -61,5 +62,13 @@ var feed = "http://wmedia.es/?feed=json";
 // Lanzamos la lectura del feed
 obtenerDatosTabla(feed, onSucces, onError);
 
-// Abrimos la ventana principal
-$.index.open();
+var abrirDetalle = function(datos) {
+	var detalle = Alloy.createController("detalle");
+	detalle.abrirDetalle(datos.row.direccion);
+	var vistaDetalle = detalle.getView();
+	
+	$.navigationWindow.openWindow(vistaDetalle);
+};
+
+// Abrimos la navigation Window
+$.navigationWindow.open();

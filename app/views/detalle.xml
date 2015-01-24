@@ -1,0 +1,7 @@
+<Alloy>
+	<Window>
+		<WebView id="webdetalle">
+			
+		</WebView>
+	</Window>
+</Alloy>
