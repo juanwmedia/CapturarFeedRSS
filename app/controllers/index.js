@@ -42,6 +42,10 @@ var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
 feed.obtenerDatosTabla(urlFeed, onSucces, onError);
+function cargarRss() {
+	alert('Cargando...');
+	feed.obtenerDatosTabla(urlFeed, onSucces, onError);
+}
 
 var abrirDetalle = function(datos) {
 	var detalle = Alloy.createController("detalle");
@@ -58,10 +62,9 @@ var abrirDetalle = function(datos) {
 
 };
 
-// Abrimos la navigation Window
+// Lanzamos la App
 if (OS_IOS) {
 	$.navigationWindow.open();
 } else {
 	$.index.open();
 }
-

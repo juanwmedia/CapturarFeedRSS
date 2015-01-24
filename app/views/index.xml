@@ -1,5 +1,9 @@
 <Alloy>
 	<Window class="contenedor" title="Lector RSS">
+		<Menu>
+			<MenuItem title="Recargar" icon="refresh_icon.png" onClick="cargarRss"/>
+		</Menu>
+		
 		<!-- Tabla que contendrá el listado de noticias-->
 		<TableView id="tablaNoticias" onClick="abrirDetalle"></TableView>
 	</Window>

@@ -13,3 +13,11 @@
 		fontSize: 12
 	}
 }
+
+"#refreshButton[platform=ios]": {
+    systemButton: Ti.UI.iPhone.SystemButton.REFRESH
+}
+
+"#refreshButton[platform=mobileweb]": {
+    title: 'refresh'
+}
