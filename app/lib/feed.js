@@ -1,5 +1,10 @@
 // Conectar con el feed a procesar
 exports.obtenerDatosTabla = function(url,onSucces,onError){
+	
+	// Lanzamos el mensaje de cargando...
+	Alloy.Globals.loading.show('Cagando feed...', false);
+	
+	
 	var client = Ti.Network.createHTTPClient({
 		
 		// Cuando los datos están disponibles, cargados

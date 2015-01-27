@@ -2,6 +2,8 @@ var feed = require('feed');
 
 // Procesar el feed y guardarlo en un objeto Json
 var onSucces = function(respuesta) {
+	
+	Alloy.Globals.loading.hide();
 
 	var feedParseado = JSON.parse(respuesta);
 	var fila,
@@ -34,6 +36,7 @@ var onSucces = function(respuesta) {
 
 // Callback para los errores
 var onError = function(errorDevuelto) {
+	Alloy.Globals.loading.hide();
 	console.log(errorDevuelto);
 };
 
@@ -42,17 +45,16 @@ var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
 feed.obtenerDatosTabla(urlFeed, onSucces, onError);
+
 function cargarRss() {
-	alert('Cargando...');
 	feed.obtenerDatosTabla(urlFeed, onSucces, onError);
 }
 
+// Abrir los detalles de un elemento de contenido específico
 var abrirDetalle = function(datos) {
 	var detalle = Alloy.createController("detalle");
 	detalle.abrirDetalle(datos.row.direccion);
 	var vistaDetalle = detalle.getView();
-
-	
 
 	if (OS_IOS) {
 		$.navigationWindow.openWindow(vistaDetalle);
