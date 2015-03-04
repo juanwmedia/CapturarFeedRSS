@@ -44,11 +44,10 @@ var siHayError = function(errorDevuelto) {
 var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
-feed.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
-
 function cargarRss() {
 	feed.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
-}
+};
+cargarRss();
 
 // Abrir los detalles de un elemento de contenido específico
 var abrirDetalle = function(datos) {
