@@ -2,3 +2,5 @@
 exports.abrirDetalle = function(direccion) {
 	$.webdetalle.url = direccion;
 };
+
+

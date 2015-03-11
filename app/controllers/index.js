@@ -1,4 +1,5 @@
-var feed = require('feed');
+// Cargo la funcinalidad para Ajax.
+var accederTabla = require('feed');
 
 // Procesar el feed y guardarlo en un objeto Json
 var siHayExito = function(respuesta) {
@@ -6,21 +7,29 @@ var siHayExito = function(respuesta) {
 	Alloy.Globals.loading.hide();
 
 	var feedParseado = JSON.parse(respuesta);
+	
 	var fila,
 	    payload;
-	var filas = [];
+	    
+	var filas = []; // Array
 
 	// Por cada una de las noticias, debo crear una fila
 	// para la tableView con los datos individuales del contenido
-	feedParseado.forEach(function(noticia) {
+	var i = 1;
+	feedParseado.forEach(function(cadaNoticia) {
 
 		// Guardo los datos de cada noticia en el objeto payload
 		payload = {
-			titulo : noticia.title,
-			previo : noticia.excerpt,
-			thumb : noticia.thumbnail,
-			direccion : noticia.permalink
+			titulo : cadaNoticia.title,
+			previo : cadaNoticia.excerpt,
+			thumb : cadaNoticia.thumbnail,
+			direccion : cadaNoticia.permalink
 		};
+		
+		//////// INFO
+		console.log('Payload ' + i + ' ' + JSON.stringify(payload));
+		i++;
+		////////
 
 		// Pora cada fila instanciamos el controlador de las filas
 		// y obtenemos su vista
@@ -45,14 +54,17 @@ var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
 function cargarRss() {
-	feed.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
+	accederTabla.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
 };
 cargarRss();
 
 // Abrir los detalles de un elemento de contenido específico
 var abrirDetalle = function(datos) {
+	
 	var detalle = Alloy.createController("detalle");
+	
 	detalle.abrirDetalle(datos.row.direccion);
+	
 	var vistaDetalle = detalle.getView();
 
 	if (OS_IOS) {
@@ -63,7 +75,7 @@ var abrirDetalle = function(datos) {
 
 };
 
-// Lanzamos la App
+// Lanzamos la App, primera carga, portada
 if (OS_IOS) {
 	$.navigationWindow.open();
 } else {

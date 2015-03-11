@@ -2,8 +2,7 @@
 exports.obtenerDatosTabla = function(url,onSucces,onError){
 	
 	// Lanzamos el mensaje de cargando...
-	Alloy.Globals.loading.show('Cagando feed...', false);
-	
+	Alloy.Globals.loading.show('Cargando feed...', false);
 	
 	var client = Ti.Network.createHTTPClient({
 		
@@ -21,6 +20,7 @@ exports.obtenerDatosTabla = function(url,onSucces,onError){
 
 	// Abrimos la conexión
 	client.open("GET", url);
+	
 	// Enviamos la petición
 	client.send();
 };
