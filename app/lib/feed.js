@@ -1,5 +1,5 @@
 // Conectar con el feed a procesar
-exports.obtenerDatosTabla = function(url,onSucces,onError){
+exports.obtenerDatosTabla = function(url, onSucces, onError){
 	
 	// Lanzamos el mensaje de cargando...
 	Alloy.Globals.loading.show('Cargando feed...', false);

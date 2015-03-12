@@ -1,5 +1,5 @@
 // Cargo la funcinalidad para Ajax.
-var accederTabla = require('feed');
+var utilidadAjax = require('feed');
 
 // Procesar el feed y guardarlo en un objeto Json
 var siHayExito = function(respuesta) {
@@ -8,14 +8,15 @@ var siHayExito = function(respuesta) {
 
 	var feedParseado = JSON.parse(respuesta);
 	
-	var fila,
-	    payload;
+	var fila, payload;
 	    
 	var filas = []; // Array
 
 	// Por cada una de las noticias, debo crear una fila
 	// para la tableView con los datos individuales del contenido
 	var i = 1;
+	
+	
 	feedParseado.forEach(function(cadaNoticia) {
 
 		// Guardo los datos de cada noticia en el objeto payload
@@ -37,7 +38,11 @@ var siHayExito = function(respuesta) {
 
 		// Y vamos guardando cada fila en la matriz filas
 		filas.push(fila);
+		
+		
 	});
+	
+	// FIN BUCLE
 
 	// Le pasamos la matriz con las filas a la tableView
 	$.tablaNoticias.data = filas;
@@ -54,8 +59,10 @@ var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
 function cargarRss() {
-	accederTabla.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
+	utilidadAjax.obtenerDatosTabla(urlFeed, siHayExito, siHayError);
 };
+
+// Carga inicial
 cargarRss();
 
 // Abrir los detalles de un elemento de contenido específico
