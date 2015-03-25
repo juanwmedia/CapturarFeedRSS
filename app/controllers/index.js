@@ -1,12 +1,16 @@
 // Cargo la funcinalidad para Ajax.
-var utilidadAjax = require('feed');
+var utilidadAjax = require('feed'); // TIENE que estar en <lib>
+
+// Feed a abrir
+var urlFeed = "http://wmedia.es/?feed=json";
 
 // Procesar el feed y guardarlo en un objeto Json
-var siHayExito = function(respuesta) {
+function siHayExito(responseText) {
 	
+	// Ocultamos el cargador
 	Alloy.Globals.loading.hide();
 
-	var feedParseado = JSON.parse(respuesta);
+	var feedParseado = JSON.parse(responseText);
 	
 	var fila, payload;
 	    
@@ -15,7 +19,6 @@ var siHayExito = function(respuesta) {
 	// Por cada una de las noticias, debo crear una fila
 	// para la tableView con los datos individuales del contenido
 	var i = 1;
-	
 	
 	feedParseado.forEach(function(cadaNoticia) {
 
@@ -39,23 +42,19 @@ var siHayExito = function(respuesta) {
 		// Y vamos guardando cada fila en la matriz filas
 		filas.push(fila);
 		
-		
 	});
 	
 	// FIN BUCLE
-
-	// Le pasamos la matriz con las filas a la tableView
+	
+	// Asociamos el objeto con las filas a la 'tableView'
 	$.tablaNoticias.data = filas;
 };
 
 // Callback para los errores
-var siHayError = function(errorDevuelto) {
+function siHayError(errorDevuelto) {
 	Alloy.Globals.loading.hide();
 	console.log(errorDevuelto);
 };
-
-// Feed a abrir
-var urlFeed = "http://wmedia.es/?feed=json";
 
 // Lanzamos la lectura del feed
 function cargarRss() {
@@ -70,7 +69,10 @@ var abrirDetalle = function(datos) {
 	
 	var detalle = Alloy.createController("detalle");
 	
-	detalle.abrirDetalle(datos.row.direccion);
+	// Invoca la función 'abrirURL' del controlador 'detale' con
+	// la dirección URL que proviene de la fila en cuestión 
+	// donde se haya realizado el tap/click
+	detalle.abrirURL(datos.row.direccion);
 	
 	var vistaDetalle = detalle.getView();
 

@@ -2,6 +2,7 @@
 
 	<!-- Representa cada fila de la tabla -->
 	<TableViewRow class="contenedor-fila">
+		
 		<View class="noticia">
 
 			<!-- Imagen thumbnail -->
@@ -14,6 +15,7 @@
 			</View>
 
 		</View>
+		
 	</TableViewRow>
 
 </Alloy>

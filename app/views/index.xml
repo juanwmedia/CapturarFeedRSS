@@ -5,6 +5,8 @@
 		</Menu>
 		
 		<!-- Tabla que contendrá el listado de noticias-->
-		<TableView id="tablaNoticias" onClick="abrirDetalle"></TableView>
+		<TableView id="tablaNoticias" onClick="abrirDetalle">
+			
+		</TableView>
 	</Window>
 </Alloy>
